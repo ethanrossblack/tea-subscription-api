@@ -60,4 +60,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Display test results in terminal in the documentation format
+  config.formatter = :documentation
+
+  # Use FactoryBot methods in testing/development environments
+  config.include FactoryBot::Syntax::Methods
 end
