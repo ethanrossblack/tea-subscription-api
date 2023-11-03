@@ -103,3 +103,69 @@ This endpoint updates a `customer_subscription` by changing its status to `'canc
 }
 ```
 
+## Get All of a Customer's Subscriptions
+
+This endpoint retrieves all of a customer's customer_subscriptions
+
+### Request
+
+#### Endpoint
+
+`GET` `/api/v1/customers/:id/customer_subscriptions`
+
+### Response
+
+#### `200` OK
+
+```json
+{
+    "data": [
+        {
+            "id": "5",
+            "type": "customer_subscription",
+            "attributes": {
+                "status": "active",
+                "subscription_title": "Standard Black Tea Subscription"
+            },
+            "relationships": {
+                "customer": {
+                    "data": {
+                        "id": "2",
+                        "type": "customer"
+                    }
+                },
+                "subscription": {
+                    "data": {
+                        "id": "9",
+                        "type": "subscription"
+                    }
+                }
+            }
+        },
+        {
+            "id": "4",
+            "type": "customer_subscription",
+            "attributes": {
+                "status": "cancelled",
+                "subscription_title": "Silver Herbal Tea Subscription"
+            },
+            "relationships": {
+                "customer": {
+                    "data": {
+                        "id": "2",
+                        "type": "customer"
+                    }
+                },
+                "subscription": {
+                    "data": {
+                        "id": "10",
+                        "type": "subscription"
+                    }
+                }
+            }
+        },
+        ...
+    ]
+}
+```
+
