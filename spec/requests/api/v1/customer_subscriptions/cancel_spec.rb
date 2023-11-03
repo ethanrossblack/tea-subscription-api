@@ -37,8 +37,9 @@ describe "PATCH /api/v1/customer_subscriptions/<id>/cancel" do
         expect(data[:type]).to eq("customer_subscription")
         
         expect(data[:attributes]).to be_a Hash
-        expect(data[:attributes].keys).to contain_exactly(:status)
+        expect(data[:attributes].keys).to contain_exactly(:status, :subscription_title)
         expect(data[:attributes][:status]).to eq("cancelled")
+        expect(data[:attributes][:subscription_title]).to eq(subscription.title)
         
         relationships = data[:relationships]
         expect(relationships).to be_a Hash
