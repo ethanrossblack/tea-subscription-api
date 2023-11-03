@@ -1,5 +1,11 @@
 # Ethan's Tea Subscription Service API
 
+This project is a sample Tea Subscription Service API for a mock job technical challenge.
+
+### Running on
+- Ruby 3.2.2
+- Rails 7.0.8
+
 ## Install
 ```
 bundle install
