@@ -1,24 +1,64 @@
-# README
+# Ethan's Tea Subscription Service API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
+```
+bundle install
+```
+## Set up database
+```
+rails db:{create,migrate,seed}
+```
 
-Things you may want to cover:
+# API Endpoints
 
-* Ruby version
+## Create New Customer Subscription
 
-* System dependencies
+This endpoint adds a new Subscription to a Customer by creating a row in the `customer_subscriptions` table.
 
-* Configuration
+### Request
 
-* Database creation
+#### Endpoint
 
-* Database initialization
+`POST` `/api/v1/customer_subscriptions`
 
-* How to run the test suite
+#### Request Body (Required)
 
-* Services (job queues, cache servers, search engines, etc.)
+Sent as `application/json`
 
-* Deployment instructions
 
-* ...
+```json
+{
+    "subscription_id": 1,
+    "customer_id": 1
+}
+```
+
+### Response
+
+#### `201` Created
+
+```
+{
+    "data": {
+        "id": "68",
+        "type": "customer_subscription",
+        "attributes": {
+            "status": "active"
+        },
+        "relationships": {
+            "customer": {
+                "data": {
+                    "id": "1",
+                    "type": "customer"
+                }
+            },
+            "subscription": {
+                "data": {
+                    "id": "1",
+                    "type": "subscription"
+                }
+            }
+        }
+    }
+}
+```
