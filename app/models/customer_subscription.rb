@@ -7,4 +7,8 @@ class CustomerSubscription < ApplicationRecord
   validates :customer_id, presence: true
   validates :subscription_id, presence: true
   validates :status, presence: true
+
+  def subscription_title
+    subscription.title
+  end
 end
