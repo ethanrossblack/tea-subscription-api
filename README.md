@@ -37,7 +37,7 @@ Sent as `application/json`
 
 #### `201` Created
 
-```
+```json
 {
     "data": {
         "id": "68",
@@ -62,3 +62,44 @@ Sent as `application/json`
     }
 }
 ```
+
+## Cancel A Customer Subscription
+
+This endpoint updates a `customer_subscription` by changing its status to `'cancelled'`.
+
+### Request
+
+#### Endpoint
+
+`PATCH` `/api/v1/customer_subscriptions/:id/cancel`
+
+### Response
+
+#### `200` OK
+
+```json
+{
+    "data": {
+        "id": "68",
+        "type": "customer_subscription",
+        "attributes": {
+            "status": "cancelled"
+        },
+        "relationships": {
+            "customer": {
+                "data": {
+                    "id": "1",
+                    "type": "customer"
+                }
+            },
+            "subscription": {
+                "data": {
+                    "id": "1",
+                    "type": "subscription"
+                }
+            }
+        }
+    }
+}
+```
+
